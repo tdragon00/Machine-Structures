@@ -17,9 +17,13 @@ out_2: .asciiz "the sum of the integer is:"
 	 syscall
 	 move $s0,$v0
 	 
+	 move $t1,$zero				#setting sum to 0
 	   
-for:    
-        
+	   
+loop:   bgt $t0,$s0,exit_for
+	addi $t0,$t0,1
+	add $t1,$t1,$t0
+        j loop
         
         
 out_for:li   $v0,4
